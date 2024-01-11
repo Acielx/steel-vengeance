@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://blb5ecdf6jrxq"]
+[gd_scene load_steps=5 format=3 uid="uid://blb5ecdf6jrxq"]
 
 [ext_resource type="Script" path="res://Options/Options.gd" id="1_bojrg"]
+[ext_resource type="PackedScene" uid="uid://bcoc3vy4nf8qb" path="res://Options/control.tscn" id="2_txbv4"]
+[ext_resource type="AudioStream" uid="uid://gu7ujnj6eme0" path="res://background_music/button_click.wav" id="3_v87ew"]
 
 [sub_resource type="SystemFont" id="SystemFont_d1l3q"]
 font_names = PackedStringArray("Sitka Display")
@@ -46,8 +48,16 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Settings_Tab_Container" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_txbv4")]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Exit_Button"]
+stream = ExtResource("3_v87ew")
